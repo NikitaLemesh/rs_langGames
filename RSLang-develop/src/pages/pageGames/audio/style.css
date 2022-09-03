@@ -1,0 +1,22 @@
+.btn-answer {
+    width: 150px;
+}
+
+.img-answer {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.container-show-answer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-show-answer {
+    display: 'flex';
+    flex-direction: row;
+    align-items: 'center';
+}
