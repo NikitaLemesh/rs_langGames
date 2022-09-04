@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ScoreCount } from '../constants';
 import { sprintResultRight, sprintResultWrong } from '../constants';
 import Card from '@mui/material/Card';
@@ -9,13 +9,34 @@ import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import { Link } from "react-router-dom";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 const Modal = (props: ScoreCount) => {
   const listRight = sprintResultRight.map((item) => {
-    return <ListItem style={{color: '#781C68'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
+    const url = 'https://react-learnwords-rslangg.herokuapp.com';
+    const playAudio = () => {
+        const audioPlay = new Audio(`${url}/${item.audioRightWord}`);
+        audioPlay.play();
+  }
+    return (
+      <ListItem style={{color: '#781C68'}}>
+        <Button color="warning" onClick={playAudio}><VolumeUpIcon></VolumeUpIcon></Button>
+        <Typography>{`eng: ${item.wordEngl} rus: ${item.translate}`}</Typography>
+      </ListItem>
+    );
   });
   const listWrong = sprintResultWrong.map((item) => {
-    return <ListItem style={{color: '#781C68'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
+    const url = 'https://react-learnwords-rslangg.herokuapp.com';
+    const playAudio = () => {
+        const audioPlay = new Audio(`${url}/${item.audioRightWord}`);
+        audioPlay.play();
+  }
+    return (
+      <ListItem style={{color: '#781C68'}}>
+        <Button color="warning" onClick={playAudio}><VolumeUpIcon></VolumeUpIcon></Button>
+        <Typography>{`eng: ${item.wordEngl} rus: ${item.translate}`}</Typography>
+      </ListItem>
+    );
   });
   const playAgain = () => {
     document.location.reload();

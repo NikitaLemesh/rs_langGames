@@ -43,7 +43,7 @@ const AudioChallenge = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const addItemToArray = (array: GameResult[]) => {
-    array.push({ wordEngl: word?.word, translate: word?.wordTranslate });
+    array.push({ wordEngl: word?.word, translate: word?.wordTranslate, audioRightWord: word?.audio});
   }
   const addCounter = () => {
     counter += 1;

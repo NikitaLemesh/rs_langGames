@@ -13,6 +13,7 @@ import { sprintResultRight, GameResult, sprintResultWrong } from '../constants';
 const Sprint = () => {
   let [score, setScore] = useState(0);
   const [word, setWords] = useState();
+  const [audioWord, setAudioWord] = useState();
   const [toRus, setTranslate] = useState();
   const [number, setNumber] = useState(0);
   const [numberTranslate, setnumberTranslate] = useState(0);
@@ -20,7 +21,7 @@ const Sprint = () => {
     score += 10;
   }
   const addItemToArray = (array: GameResult[]) => {
-    array.push({ wordEngl: word, translate: toRus });
+    array.push({ wordEngl: word, translate: toRus, audioRightWord: audioWord });
   }
   const randomItem = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -52,6 +53,7 @@ const Sprint = () => {
     const res = await getAllWords(items.group, items.page);
     setTranslate(res[numberTranslate].wordTranslate);
     setWords(res[number].word);
+    setAudioWord(res[numberTranslate].audio);
   }
   getwordsCollection();
   return (

@@ -3,12 +3,12 @@ import Modal from "./modal";
 import { ScoreCount } from '../constants';
 
 const Timer = (props: ScoreCount) => {
-    const time = 60000;
+    const time = 600;
     const interval = 1000;
 
     const [isOpen, setIsOpen] = useState(false);
     const [gameStarted, setGameStarted] = useState(false);
-    const [counter, setCounter] = useState(59);
+    const [counter, setCounter] = useState(1);
     const timer = useRef<{ initialTime: number, timer: ReturnType<typeof setInterval> | null }>({ initialTime: 0, timer: null });
 
     useEffect(() => {

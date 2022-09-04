@@ -27,6 +27,7 @@ export const audioResultWrong: GameResult[] = []
 export interface GameResult {
     wordEngl: string | undefined,
     translate: string | undefined,
+    audioRightWord: string | undefined,
 }
 
 export interface GamesNames {
