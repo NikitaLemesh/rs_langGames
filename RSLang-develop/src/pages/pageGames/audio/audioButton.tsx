@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { getAllWords } from "../../../api/api";
 import { IWord } from '../constants';
 import { items } from "../mainPageGames";
+import './style.css';
 
 const getwordsCollection = async (): Promise<IWord[]> => {
     const res = await getAllWords(items.group, items.page);
@@ -33,8 +34,8 @@ const AudioButton = (props: { random: IWord | undefined }) => {
     } 
 }, []);
     return (
-        <Container maxWidth="sm">
-            <Button variant="contained" color="warning" onClick={playAudio}><VolumeUpIcon></VolumeUpIcon></Button>
+        <Container maxWidth="sm" style={{display: 'flex', justifyContent: 'center'}}>
+            <Button variant="contained" color="warning" onClick={playAudio} style={{width: '120px', height: '120px', borderRadius: '50%'}}><VolumeUpIcon></VolumeUpIcon></Button>
         </Container>
     )
 }

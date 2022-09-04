@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Timer from './timer';
-import { sprintResultRight, SprintResult, sprintResultWrong } from '../constants';
+import { sprintResultRight, GameResult, sprintResultWrong } from '../constants';
 
 const Sprint = () => {
   let [score, setScore] = useState(0);
@@ -19,7 +19,7 @@ const Sprint = () => {
   const addScore = () => {
     score += 10;
   }
-  const addItemToArray = (array: SprintResult[]) => {
+  const addItemToArray = (array: GameResult[]) => {
     array.push({wordEngl: word, translate: toRus});
   }
   const randomItem = (event: React.MouseEvent<HTMLElement>) => {

@@ -18,10 +18,13 @@ const games: GamesNames[] = [
     }
 ];
 
-export const sprintResultRight: SprintResult[] = []
-export const sprintResultWrong: SprintResult[] = []
+export const sprintResultRight: GameResult[] = []
+export const sprintResultWrong: GameResult[] = []
+export const audioResultRight: GameResult[] = []
+export const audioResultWrong: GameResult[] = []
 
-export interface SprintResult {
+
+export interface GameResult {
     wordEngl: string | undefined,
     translate: string | undefined,
 }

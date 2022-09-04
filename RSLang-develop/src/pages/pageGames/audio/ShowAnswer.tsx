@@ -3,7 +3,6 @@ import { IWord } from '../constants';
 import Container from '@mui/material/Container';
 import AudioButton from "./audioButton";
 import { Typography } from "@mui/material";
-import './style.css';
 
 const ShowAnswer = (props: { item: IWord | undefined }) => {
     const url = 'https://react-learnwords-rslangg.herokuapp.com';

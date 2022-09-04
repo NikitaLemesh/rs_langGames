@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ScoreCount } from '../constants';
-import { sprintResultRight, sprintResultWrong } from '../constants';
+import { audioResultRight, audioResultWrong } from '../constants';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,18 +11,16 @@ import List from '@mui/material/List';
 import { Link } from "react-router-dom";
 
 const Modal = (props: ScoreCount) => {
-  const listRight = sprintResultRight.map((item) => {
+  const listRight = audioResultRight.map((item) => {
     return <ListItem>{item.wordEngl}</ListItem>
   });
-  const listWrong = sprintResultWrong.map((item) => {
+  const listWrong = audioResultWrong.map((item) => {
     return <ListItem>{item.wordEngl}</ListItem>
   });
   const playAgain = () => {
     document.location.reload();
   }
-  const closeGame = () => {
-
-  }
+  const closeGame = () => {}
   return (
     <Card style={{zIndex: '10', width: '400px', height: '500px', position: 'absolute', top: 'calc(50vh - 250px)', left: 'calc(50% - 200px)', overflowY: 'auto'}}>
       <CardContent>
@@ -30,11 +28,11 @@ const Modal = (props: ScoreCount) => {
           Вы набрали {props.scoreCount} очков
         </Typography>
         <Typography variant="h5" component="h2">
-          Правильных ответов {sprintResultRight.length}
+          Правильных ответов {audioResultRight.length}
         </Typography>
         <List>{listRight}</List>
         <Typography variant="h5" component="h2">
-          Неправильных ответов {sprintResultWrong.length}
+          Неправильных ответов {audioResultWrong.length}
         </Typography>
         <List>{listWrong}</List>
       </CardContent>
