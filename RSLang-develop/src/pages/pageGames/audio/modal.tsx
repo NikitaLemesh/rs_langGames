@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ScoreCount } from '../constants';
 import { audioResultRight, audioResultWrong } from '../constants';
 import Card from '@mui/material/Card';
@@ -12,26 +12,23 @@ import { Link } from "react-router-dom";
 
 const Modal = (props: ScoreCount) => {
   const listRight = audioResultRight.map((item) => {
-    return <ListItem>{item.wordEngl}</ListItem>
+    return <ListItem style={{color: '#224B0C'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
   });
   const listWrong = audioResultWrong.map((item) => {
-    return <ListItem>{item.wordEngl}</ListItem>
+    return <ListItem style={{color: '#224B0C'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
   });
   const playAgain = () => {
     document.location.reload();
   }
   const closeGame = () => {}
   return (
-    <Card style={{zIndex: '10', width: '400px', height: '500px', position: 'absolute', top: 'calc(50vh - 250px)', left: 'calc(50% - 200px)', overflowY: 'auto'}}>
+    <Card style={{zIndex: '10', width: '500px', height: '500px', position: 'absolute', top: '0px', left: 'calc(50% - 250px)', overflowY: 'auto', backgroundColor: '#7FB77E'}}>
       <CardContent>
-        <Typography variant="h5" component="h2">
-          Вы набрали {props.scoreCount} очков
-        </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" style={{color: '#224B0C'}}>
           Правильных ответов {audioResultRight.length}
         </Typography>
         <List>{listRight}</List>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" style={{color: '#224B0C'}}>
           Неправильных ответов {audioResultWrong.length}
         </Typography>
         <List>{listWrong}</List>
@@ -39,7 +36,7 @@ const Modal = (props: ScoreCount) => {
       <CardActions style={{display: 'flex', justifyContent: 'space-around'}}>
         <Button variant="contained" color="success" onClick={playAgain}>play again</Button>
         <Button variant="contained" color="warning" onClick={closeGame}>
-          <Link to={'/games'}>close</Link>
+          <Link to={'/games'} style={{textDecoration: 'none', color: 'white'}}>close</Link>
         </Button>
       </CardActions>
     </Card>

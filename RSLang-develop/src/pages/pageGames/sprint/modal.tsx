@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 
 const Modal = (props: ScoreCount) => {
   const listRight = sprintResultRight.map((item) => {
-    return <ListItem>{item.wordEngl}</ListItem>
+    return <ListItem style={{color: '#781C68'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
   });
   const listWrong = sprintResultWrong.map((item) => {
-    return <ListItem>{item.wordEngl}</ListItem>
+    return <ListItem style={{color: '#781C68'}}>{`eng: ${item.wordEngl} rus: ${item.translate}`}</ListItem>
   });
   const playAgain = () => {
     document.location.reload();
@@ -24,16 +24,16 @@ const Modal = (props: ScoreCount) => {
 
   }
   return (
-    <Card style={{zIndex: '10', width: '400px', height: '500px', position: 'absolute', top: 'calc(50vh - 250px)', left: 'calc(50% - 200px)', overflowY: 'auto'}}>
+    <Card style={{backgroundColor: '#B93160', zIndex: '10', width: '400px', height: '500px', position: 'absolute', top: 'calc(50vh - 250px)', left: 'calc(50% - 200px)', overflowY: 'auto'}}>
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" style={{color: '#781C68'}}>
           Вы набрали {props.scoreCount} очков
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" style={{color: '#781C68'}}>
           Правильных ответов {sprintResultRight.length}
         </Typography>
         <List>{listRight}</List>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" style={{color: '#781C68'}}>
           Неправильных ответов {sprintResultWrong.length}
         </Typography>
         <List>{listWrong}</List>
@@ -41,7 +41,7 @@ const Modal = (props: ScoreCount) => {
       <CardActions style={{display: 'flex', justifyContent: 'space-around'}}>
         <Button variant="contained" color="success" onClick={playAgain}>play again</Button>
         <Button variant="contained" color="warning" onClick={closeGame}>
-          <Link to={'/games'}>close</Link>
+          <Link to={'/games'} style={{textDecoration: 'none', color: 'white'}}>close</Link>
         </Button>
       </CardActions>
     </Card>

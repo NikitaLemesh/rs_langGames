@@ -75,7 +75,7 @@ const AudioChallenge = () => {
       setLimit(limit);
       setCounter(counter);
       addItemToArray(audioResultRight)
-      if (limit === 4) {
+      if (limit === 16) {
         setIsOpen(true);
       }
       setTimeout(() => {
@@ -88,7 +88,7 @@ const AudioChallenge = () => {
       setLimit(limit);
       setCounter(counter);
       addItemToArray(audioResultWrong);
-      if (limit === 4) {
+      if (limit === 16) {
         setIsOpen(true);
       }
       setTimeout(() => {
@@ -127,7 +127,7 @@ const AudioChallenge = () => {
           {!details && <Button variant="contained" color="warning" id='btn-answer' onClick={showAnswer} style={{ width: '150px', margin: 'auto' }}>answer</Button>}
           {details && <Button variant="contained" color="warning" id='btn-next' onClick={getNextWord} style={{ width: '150px', margin: 'auto' }}>next</Button>}
         </CardActions>
-        <Typography style={{marginLeft: 'calc(50%)', width: '150px', height: '150px', fontSize: '30px'}}>{`${counter} / 15`}</Typography>
+        <Typography style={{marginLeft: 'calc(50% - 40px)', fontSize: '30px', color: '#C67ACE'}}>{`${counter} / 15`}</Typography>
         {isOpen && <Modal scoreCount={counter} />}
       </Container>
     </div>

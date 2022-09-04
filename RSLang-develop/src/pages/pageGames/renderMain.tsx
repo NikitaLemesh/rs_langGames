@@ -5,6 +5,7 @@ import Container from '@mui/material/Container'
 
 const RenderMain = () => {
   return (
+    <div style={{margin: '0', width: '100vw', height: '100vh', backgroundColor: '#A460ED' }}>
     <Container maxWidth="sm" style={{display: 'flex', gap: '40px', alignContent: 'center'}}>
       <MediaCard
         id={games[0].id}
@@ -21,6 +22,7 @@ const RenderMain = () => {
         page={games[1].page}
       />
     </Container>
+    </div>
   )
 }
 

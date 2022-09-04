@@ -35,7 +35,7 @@ const AudioButton = (props: { random: IWord | undefined }) => {
 }, []);
     return (
         <Container maxWidth="sm" style={{display: 'flex', justifyContent: 'center'}}>
-            <Button variant="contained" color="warning" onClick={playAudio} style={{width: '120px', height: '120px', borderRadius: '50%'}}><VolumeUpIcon></VolumeUpIcon></Button>
+            <Button variant="contained" color="warning" onClick={playAudio} style={{width: '80px', height: '80px', borderRadius: '50%'}}><VolumeUpIcon></VolumeUpIcon></Button>
         </Container>
     )
 }

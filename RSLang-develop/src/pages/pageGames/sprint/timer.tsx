@@ -37,7 +37,7 @@ const Timer = (props: ScoreCount) => {
 
     return (
         <>
-            <p style={{ margin: 'auto', fontSize: '40px' }}>{counter}</p>
+            <p style={{ margin: 'auto', fontSize: '40px', color: '#781C68' }}>{counter}</p>
             {isOpen && <Modal scoreCount={props.scoreCount} />}
         </>
     )

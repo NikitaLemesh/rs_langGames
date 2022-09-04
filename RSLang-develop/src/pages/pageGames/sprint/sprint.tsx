@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { items } from "../mainPageGames";
 import { getAllWords } from "../../../api/api";
 import Card from '@mui/material/Card';
@@ -20,7 +20,7 @@ const Sprint = () => {
     score += 10;
   }
   const addItemToArray = (array: GameResult[]) => {
-    array.push({wordEngl: word, translate: toRus});
+    array.push({ wordEngl: word, translate: toRus });
   }
   const randomItem = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -48,36 +48,35 @@ const Sprint = () => {
     oneOrZero ? setnumberTranslate(randomNumberWord) : setnumberTranslate(randomNumberTranslate);
     setNumber(randomNumberWord);
   }
-   const getwordsCollection = async () => {
-      const res = await getAllWords(items.group, items.page);
-      setTranslate(res[numberTranslate].wordTranslate);
-      setWords(res[number].word);
-    }
-  useEffect(() => {
-    getwordsCollection();
-  }, [])
-  console.log('aa');
+  const getwordsCollection = async () => {
+    const res = await getAllWords(items.group, items.page);
+    setTranslate(res[numberTranslate].wordTranslate);
+    setWords(res[number].word);
+  }
+  getwordsCollection();
   return (
-    <Container maxWidth="sm" style={{display: 'flex', gap: '40px', alignContent: 'center', flexDirection: 'column', marginTop: '200px '}}>
-      <Typography variant="h5" component="h2" style={{ margin: 'auto' }}>
+    <div style={{ margin: '0', width: '100vw', height: '100vh', backgroundColor: '#FF7396', paddingTop: '200px' }}>
+      <Container maxWidth="sm" style={{ display: 'flex', gap: '40px', alignContent: 'center', flexDirection: 'column' }}>
+        <Typography variant="h5" component="h2" style={{ margin: 'auto', color: '#781C68'}}>
           Текущий результат {score}
         </Typography>
-      <Card style={{display: 'flex', width: '300px', flexDirection: 'column', alignItems: 'center', margin: 'auto' }}>
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            {word}
-          </Typography>
-          <Typography variant="h6" component="h3" style={{marginBottom: '20px'}}>
-            {toRus}
-          </Typography>
-        </CardContent>
-        <CardActions style={{display: 'flex', gap: '40px'}}>
-          <Button variant="contained" color="success" onClick={randomItem} id='btn-right'>right</Button>
-          <Button variant="contained" color="warning" onClick={randomItem} id='btn-wrong'>wrong</Button>
-        </CardActions>
-      </Card>
-      <Timer scoreCount={score} />
-    </Container>
+        <Card style={{ display: 'flex', width: '300px', flexDirection: 'column', alignItems: 'center', margin: 'auto', backgroundColor: '#D75281' }}>
+          <CardContent>
+            <Typography variant="h5" component="h2" style={{color: '#781C68'}}>
+              {word}
+            </Typography>
+            <Typography variant="h6" component="h3" style={{ marginBottom: '20px', color: '#781C68' }}>
+              {toRus}
+            </Typography>
+          </CardContent>
+          <CardActions style={{ display: 'flex', gap: '40px' }}>
+            <Button variant="contained" color="success" onClick={randomItem} id='btn-right'>right</Button>
+            <Button variant="contained" color="warning" onClick={randomItem} id='btn-wrong'>wrong</Button>
+          </CardActions>
+        </Card>
+        <Timer scoreCount={score} />
+      </Container>
+    </div>
   )
 }
 export default Sprint;

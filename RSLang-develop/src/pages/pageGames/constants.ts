@@ -6,7 +6,7 @@ const games: GamesNames[] = [
         id: 'sprint',
         image: ImageSprint,
         name: 'Sprint',
-        description: 'Check how much points you can get in one minute',
+        description: 'Check how much points you can get in one minute, in sprint game. Lets go.',
         page: '/games/sprint'
     },
     {
