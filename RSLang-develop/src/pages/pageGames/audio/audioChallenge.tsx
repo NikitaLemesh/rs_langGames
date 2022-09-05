@@ -32,7 +32,7 @@ export const randomNumber = (): number[] => {
   }
   return Array.from(nums);
 }
-export const oneOfFore = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+export const oneOfFore = () =>  Math.floor(Math.random() * (4 - 0)) + 0;
 
 const AudioChallenge = () => {
   const [word, setWord] = useState<IWord>();
@@ -41,6 +41,7 @@ const AudioChallenge = () => {
   let [counter, setCounter] = useState(0);
   let [limit, setLimit] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [randomIndex, setRandomIndex] = useState(oneOfFore())
 
   const addItemToArray = (array: GameResult[]) => {
     array.push({ wordEngl: word?.word, translate: word?.wordTranslate, audioRightWord: word?.audio});
@@ -60,7 +61,7 @@ const AudioChallenge = () => {
       })
       return array;
     }).then((data) => {
-      setWord(data[oneOfFore]);
+      setWord(data[randomIndex]);
       setWords(data);
     });
   }, []);
@@ -74,7 +75,8 @@ const AudioChallenge = () => {
       checkLimit();
       setLimit(limit);
       setCounter(counter);
-      addItemToArray(audioResultRight)
+      addItemToArray(audioResultRight);
+      setRandomIndex(oneOfFore());
       if (limit === 16) {
         setIsOpen(true);
       }
@@ -88,6 +90,7 @@ const AudioChallenge = () => {
       setLimit(limit);
       setCounter(counter);
       addItemToArray(audioResultWrong);
+      setRandomIndex(oneOfFore());
       if (limit === 16) {
         setIsOpen(true);
       }
@@ -107,7 +110,7 @@ const AudioChallenge = () => {
       })
       return array;
     }).then((data) => {
-      setWord(data[oneOfFore]);
+      setWord(data[randomIndex]);
       setWords(data);
     }).then(() => {
       setDetails(false);
