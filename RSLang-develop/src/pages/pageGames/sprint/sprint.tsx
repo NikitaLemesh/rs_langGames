@@ -51,6 +51,8 @@ const Sprint = () => {
   }
   const getwordsCollection = async () => {
     const res = await getAllWords(items.group, items.page);
+    console.log(items.group);
+    console.log(items.page);
     setTranslate(res[numberTranslate].wordTranslate);
     setWords(res[number].word);
     setAudioWord(res[numberTranslate].audio);

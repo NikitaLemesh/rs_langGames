@@ -25,7 +25,7 @@ export default function MediaCard(props: GamesNames) {
   const startGame = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     items.group = Number(level) - 1;
-    items.page = Math.random() * 29;
+    items.page = Math.floor(Math.random() * 29);
   }
   return (
     <Card style={{display: 'flex', width: '300px', flexDirection: 'column', alignItems: 'center', marginTop: '100px', backgroundColor: '#EEEEEE' }} id={props.id}>
